@@ -19,7 +19,7 @@ def mass_calc():
                 log_mass = 0.477 - (0.135*mv) + (0.01228*pow(mv,2)) - (0.0006734*pow(mv,3))
                 mass = pow(10,log_mass)
                 for x in range(0,16):
-                    if(math.ceil(mv) >= x):
+                    if(math.floor(mv) == x):
                         dict[x] = dict.get(x,0) + 1
                         break
                     
@@ -29,8 +29,9 @@ def mass_calc():
                 log_mass = pow(10,-3)*(0.3+(1.87*mv)+(7.614*pow(mv,2))-(1.698*pow(mv,3))+(0.06096*pow(mv,4)))
                 mass = pow(10,log_mass)
                 for x in range(0,16):
-                    if(math.ceil(mv) >= x):
-                        dict[x] = dict.get(x,0) + 1 
+                    if(math.floor(mv) == x):
+                        dict[x] = dict.get(x,0) + 1
+                        break
                 list.append(mass)
             # dict[mv]=mass
         print(dict)
